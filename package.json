@@ -1,0 +1,26 @@
+{
+  "name": ".",
+  "version": "1.0.0",
+  "description": "Search and Find for YouTube Comments",
+  "author": "Maik Steiger <fifeimcity@gmail.com>",
+  "keywords": [
+    "youtube",
+    "comments",
+    "scraper",
+    "competition"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "./bin/app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "pino": "^6.5.1",
+    "pino-http": "^5.2.0",
+    "pino-pretty": "^4.2.1"
+  }
+}
