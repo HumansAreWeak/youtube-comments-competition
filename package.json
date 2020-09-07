@@ -2,26 +2,20 @@
     "name": "youtube-comments-competition",
     "version": "1.0.0",
     "description": "Search and Find for YouTube Comments",
-    "author": "Maik Steiger <maik.steiger.dortmund@gmail.com>",
-    "keywords": [
-        "youtube",
-        "comments",
-        "scraper",
-        "competition"
-    ],
-    "license": "MIT",
     "main": "index.js",
+    "repository": "https://github.com/HumansAreWeak/youtube-comments-competition.git",
+    "author": "Maik Steiger <fifeimcity@gmail.com>",
+    "license": "MIT",
     "scripts": {
-        "start": "nodemon ./bin/app",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "nodemon ./index.js"
     },
     "dependencies": {
+        "body-parser": "^1.19.0",
         "ejs": "^3.1.5",
         "express": "^4.17.1",
-        "http-errors": "^1.8.0",
-        "nodemon": "^2.0.4",
-        "pino": "^6.5.1",
-        "pino-http": "^5.2.0",
-        "pino-pretty": "^4.2.1"
+        "puppeteer": "^5.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
     }
 }

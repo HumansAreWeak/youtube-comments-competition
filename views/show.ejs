@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>YouTube Comment Competition</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            * {
+                color: #ffffff;
+                font-family: "Kumbh Sans", sans-serif;
+            }
+
+            body {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                background: #111111;
+            }
+
+            #winner {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .box {
+                border: 2px solid #ffffff;
+                padding: 1rem;
+                width: 80%;
+                text-align: center;
+            }
+
+            legend {
+                padding: 0 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="winner">
+            <fieldset class="box">
+                <legend>And the winner is ... ?</legend>
+                <p id="name">And the winner is...?</p>
+            </fieldset>
+        </div>
+    </body>
+    <script>
+        // Grüße gehen Raus an Vitalij Mik :))
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const users = <%- JSON.stringify(users) %>;
+
+            let nameBox = document.getElementById("name");
+
+            let start;
+            let elapsed;
+            let fCounter = 0;
+            let fSkip = 1;
+
+            function update(timestamp) {
+                if(start === undefined) start = timestamp;
+                elapsed = timestamp - start;
+
+                if(fCounter > fSkip) {
+                    let rId = Math.floor(Math.random() * users.length);
+                    let winner = users[rId].name;
+                    nameBox.innerHTML = winner;
+                    fSkip *= 1.1;
+                }
+
+                fCounter++;
+                if(elapsed < 5000)
+                    window.requestAnimationFrame(update);
+            }
+
+            window.requestAnimationFrame(update);
+        });
+    </script>
+</html>
