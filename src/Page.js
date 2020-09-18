@@ -1,7 +1,10 @@
 const puppeteer = require("puppeteer");
 
 module.exports = async function (video_url) {
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: ["--no-sandbox"],
+    });
     const page = await browser.newPage();
     //await page.setViewport({ width: 1000, height: 926 });
     await page.goto(video_url, { waitUntil: "networkidle2" });
